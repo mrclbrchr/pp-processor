@@ -32,7 +32,6 @@ public class MqttHandler implements MqttCallback {
 
 
     public void send(Integer number) throws InterruptedException, MqttException {
-
             String content      = Integer.toString(number);
             MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
             MqttConnectOptions connOpts = new MqttConnectOptions();
