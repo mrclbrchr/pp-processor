@@ -55,7 +55,6 @@ public class ProcessorApplication {
     @Scheduled(fixedRate = 3000)
     public static void aliveSignal() throws NotRegisteredException {
         agentClient.pass(serviceId);
-        System.out.println("Im Alive");
     }
 
 }
