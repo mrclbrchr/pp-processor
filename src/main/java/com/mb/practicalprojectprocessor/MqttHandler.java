@@ -52,7 +52,6 @@ public class MqttHandler implements MqttCallback {
             throws Exception {
         String string = message.toString();
         int integer = Integer.parseInt(string);
-        System.out.println(message);
         Object limitedNumber = Processor.limitNumbers(integer);
         if(limitedNumber!=null){
             send((Integer)limitedNumber);

@@ -1,0 +1,35 @@
+version: "2"
+services:
+  mosquitto:
+    image: hivemq/hivemq4:latest
+    ports:
+      - "1884:1883"
+      - "9001:9001"
+
+  consul:
+    image: consul:latest    
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: "agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0"  
+
+  source:
+    image: docker.io/library/practical-project-datastream:0.0.1-SNAPSHOT
+    network_mode: "host"
+    depends_on:
+      - "mosquitto"
+      - "consul"
+
+  processor:
+    image: docker.io/library/practical-project-processor:0.0.1-SNAPSHOT
+    network_mode: "host"
+    depends_on:
+      - "mosquitto"
+      - "consul"
+      - "source"
+
+  detector:
+    image: docker.io/library/pp-detector:0.0.1-SNAPSHOT
+    network_mode: "host"
+
+    
