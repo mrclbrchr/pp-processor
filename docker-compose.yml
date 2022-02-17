@@ -32,4 +32,13 @@ services:
     image: docker.io/library/pp-detector:0.0.1-SNAPSHOT
     network_mode: "host"
 
-    
+  node-red:
+    image: nodered/node-red
+    ports:
+      - "1880:1880"
+    network_mode: "host"
+    volumes:
+      - node_red_data:/data
+
+volumes:
+    node_red_data:   

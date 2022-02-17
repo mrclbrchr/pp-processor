@@ -10,7 +10,7 @@ public class MqttHandler implements MqttCallback {
 
     org.eclipse.paho.client.mqttv3.MqttClient client;
     String outputTopic        = "numbers-trunced";
-    String inputTopic        = "numbers";
+    String inputTopic        = "entry";
     int qos             = 0;
     String broker       = "tcp://localhost:1883";
     String clientId     = "pp-processor";

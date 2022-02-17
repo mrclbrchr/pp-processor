@@ -35,7 +35,8 @@ public class ProcessorApplication {
         serviceMetadata.put("port","1883");
         serviceMetadata.put("communication-type","mqtt");
         serviceMetadata.put("type","processor");
-        serviceMetadata.put("topic", "numbers-trunced");
+        serviceMetadata.put("intopic", "entry");
+        serviceMetadata.put("outtopic", "numbers-trunced");
 
         Registration service = ImmutableRegistration.builder()
                 .id(serviceId)
